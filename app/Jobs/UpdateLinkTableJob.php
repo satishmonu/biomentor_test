@@ -38,7 +38,7 @@ class UpdateLinkTableJob implements ShouldQueue
         ->where('scheduled_on', '<=', Carbon::now()->addMinutes(15))
         ->whereNull('pdf_link')
         ->get();
-
+       dd("Hey");
         // Create a new PDF instance
         $pdf = new Dompdf();
 

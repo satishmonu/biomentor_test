@@ -8,6 +8,11 @@ use App\Jobs\UpdateLinkTableJob;
 
 class Kernel extends ConsoleKernel
 {
+
+    protected $commands =[
+               
+        Commands\UpdateLinkTableCommand::class,
+    ];
     /**
      * Define the application's command schedule.
      *
@@ -16,7 +21,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->job(new UpdateLinkTableJob)->everyMinute();
+        $schedule->job('update:pdflink')->everyMinute();
     }
 
     /**
